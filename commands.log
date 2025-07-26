@@ -1,0 +1,253 @@
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario
+$ git init
+Initialized empty Git repository in E:/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario/.git/
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (main)
+$ echo "add one line" > steps.txt
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (main)
+$ git add .
+warning: in the working copy of 'steps.txt', LF will be replaced by CRLF the next time Git touches it
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (main)
+$ git commit -m "Initial commit"
+[main (root-commit) 701d720] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 steps.txt
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (main)
+$ git checkout -b feature-login
+Switched to a new branch 'feature-login'
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (feature-login)
+$ echo "feature-login adds one line" >> steps.txt
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (feature-login)
+$ git add .
+warning: in the working copy of 'steps.txt', LF will be replaced by CRLF the next time Git touches it
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (feature-login)
+$ git commit -m "Initial commit in feature-login"
+[feature-login c965d0c] Initial commit in feature-login
+ 1 file changed, 1 insertion(+)
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (feature-login)
+$ echo "feature-login adds anther line" >> steps.txt
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (feature-login)
+$ git add .
+warning: in the working copy of 'steps.txt', LF will be replaced by CRLF the next time Git touches it
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (feature-login)
+$ git checkout main
+error: Your local changes to the following files would be overwritten by checkout:
+        steps.txt
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (feature-login)
+$ git commit -m "second commit in feature-login"
+[feature-login 039a0a1] second commit in feature-login
+ 1 file changed, 1 insertion(+)
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (feature-login)
+$ git checkout main
+Switched to branch 'main'
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (main)
+$ echo "main adds another line" >> steps.txt
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (main)
+$ git add .
+warning: in the working copy of 'steps.txt', LF will be replaced by CRLF the next time Git touches it
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (main)
+$ git commit -m "second commit in main"
+[main 1203a4f] second commit in main
+ 1 file changed, 1 insertion(+)
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (main)
+$ git checkout feature-login
+Switched to branch 'feature-login'
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (feature-login)
+$ git log
+commit 039a0a10b2eb55669ae5adbdecea20453006674b (HEAD -> feature-login)
+Author: ValeriEnchev <valee70@mail.bg>
+Date:   Sat Jul 26 17:20:25 2025 +0300
+
+    second commit in feature-login
+
+commit c965d0c017df145ee3b5e51b10abbcdf08767de5
+Author: ValeriEnchev <valee70@mail.bg>
+Date:   Sat Jul 26 17:16:23 2025 +0300
+
+    Initial commit in feature-login
+
+commit 701d7200e3fdc56b14a8b5c71c8a54d558646de6
+Author: ValeriEnchev <valee70@mail.bg>
+Date:   Sat Jul 26 17:14:01 2025 +0300
+
+    Initial commit
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (feature-login)
+$ git reflog
+039a0a1 (HEAD -> feature-login) HEAD@{0}: checkout: moving from main to feature-login
+1203a4f (main) HEAD@{1}: commit: second commit in main
+701d720 HEAD@{2}: checkout: moving from feature-login to main
+039a0a1 (HEAD -> feature-login) HEAD@{3}: commit: second commit in feature-login
+c965d0c HEAD@{4}: commit: Initial commit in feature-login
+701d720 HEAD@{5}: checkout: moving from main to feature-login
+701d720 HEAD@{6}: commit (initial): Initial commit
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (feature-login)
+$ git log --oneline --graph --all
+* 1203a4f (main) second commit in main
+| * 039a0a1 (HEAD -> feature-login) second commit in feature-login
+| * c965d0c Initial commit in feature-login
+|/
+* 701d720 Initial commit
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (feature-login)
+$ git rebase main
+Auto-merging steps.txt
+CONFLICT (content): Merge conflict in steps.txt
+error: could not apply c965d0c... Initial commit in feature-login
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+hint: Disable this message with "git config set advice.mergeConflict false"
+Could not apply c965d0c... Initial commit in feature-login
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (feature-login|REBASE 1/2)
+$ git rebase --continue
+steps.txt: needs merge
+You must edit all merge conflicts and then
+mark them as resolved using git add
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (feature-login|REBASE 1/2)
+$ git add .
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (feature-login|REBASE 1/2)
+$ git rebase --continue
+[detached HEAD e99a36a] Initial commit in feature-login
+ 1 file changed, 1 insertion(+)
+Auto-merging steps.txt
+CONFLICT (content): Merge conflict in steps.txt
+error: could not apply 039a0a1... second commit in feature-login
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+hint: Disable this message with "git config set advice.mergeConflict false"
+Could not apply 039a0a1... second commit in feature-login
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (feature-login|REBASE 2/2)
+$ git add .
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (feature-login|REBASE 2/2)
+$ git rebase --continue
+[detached HEAD 75e5425] second commit in feature-login
+ 1 file changed, 1 insertion(+)
+Successfully rebased and updated refs/heads/feature-login.
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (feature-login)
+$ git log --oneline --graph --all
+* 75e5425 (HEAD -> feature-login) second commit in feature-login
+* e99a36a Initial commit in feature-login
+* 1203a4f (main) second commit in main
+* 701d720 Initial commit
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (feature-login)
+$ git reflog
+75e5425 (HEAD -> feature-login) HEAD@{0}: rebase (finish): returning to refs/heads/feature-login
+75e5425 (HEAD -> feature-login) HEAD@{1}: rebase (continue): second commit in feature-login
+e99a36a HEAD@{2}: rebase (continue): Initial commit in feature-login
+1203a4f (main) HEAD@{3}: rebase (start): checkout main
+039a0a1 HEAD@{4}: checkout: moving from main to feature-login
+1203a4f (main) HEAD@{5}: commit: second commit in main
+701d720 HEAD@{6}: checkout: moving from feature-login to main
+039a0a1 HEAD@{7}: commit: second commit in feature-login
+c965d0c HEAD@{8}: commit: Initial commit in feature-login
+701d720 HEAD@{9}: checkout: moving from main to feature-login
+701d720 HEAD@{10}: commit (initial): Initial commit
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (feature-login)
+$ git checkout main
+Switched to branch 'main'
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (main)
+$ git merge feature-login
+Updating 1203a4f..75e5425
+Fast-forward
+ steps.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (main)
+$ git log
+commit 75e54254d0d313719b2e1d41fe91b6709bb4021f (HEAD -> main, feature-login)
+Author: ValeriEnchev <valee70@mail.bg>
+Date:   Sat Jul 26 17:20:25 2025 +0300
+
+    second commit in feature-login
+
+commit e99a36a62da78a134f75ebf80c6a9e19de7f92d0
+Author: ValeriEnchev <valee70@mail.bg>
+Date:   Sat Jul 26 17:16:23 2025 +0300
+
+    Initial commit in feature-login
+
+commit 1203a4fdcc0c6a9cf9720733f22a763252ab0646
+Author: ValeriEnchev <valee70@mail.bg>
+Date:   Sat Jul 26 17:22:20 2025 +0300
+
+    second commit in main
+
+commit 701d7200e3fdc56b14a8b5c71c8a54d558646de6
+Author: ValeriEnchev <valee70@mail.bg>
+Date:   Sat Jul 26 17:14:01 2025 +0300
+
+    Initial commit
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (main)
+$ git log --oneline --graph --all
+* 75e5425 (HEAD -> main, feature-login) second commit in feature-login
+* e99a36a Initial commit in feature-login
+* 1203a4f second commit in main
+* 701d720 Initial commit
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (main)
+$ git reflog
+75e5425 (HEAD -> main, feature-login) HEAD@{0}: merge feature-login: Fast-forward
+1203a4f HEAD@{1}: checkout: moving from feature-login to main
+75e5425 (HEAD -> main, feature-login) HEAD@{2}: rebase (finish): returning to refs/heads/feature-login
+75e5425 (HEAD -> main, feature-login) HEAD@{3}: rebase (continue): second commit in feature-login
+e99a36a HEAD@{4}: rebase (continue): Initial commit in feature-login
+1203a4f HEAD@{5}: rebase (start): checkout main
+039a0a1 HEAD@{6}: checkout: moving from main to feature-login
+1203a4f HEAD@{7}: commit: second commit in main
+701d720 HEAD@{8}: checkout: moving from feature-login to main
+039a0a1 HEAD@{9}: commit: second commit in feature-login
+c965d0c HEAD@{10}: commit: Initial commit in feature-login
+701d720 HEAD@{11}: checkout: moving from main to feature-login
+701d720 HEAD@{12}: commit (initial): Initial commit
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (main)
+$ git remote add origin git@github.com:ValeriEnchev/Exam-Preparation-Task-1.git
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (main)
+$ git push -u origin main
+Enumerating objects: 12, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (12/12), 1024 bytes | 256.00 KiB/s, done.
+Total 12 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To github.com:ValeriEnchev/Exam-Preparation-Task-1.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+Vali@DESKTOP-DMFPN9M MINGW64 /e/Trainig/SoftUni/Git/exercises/Exam-preparation/Advanced-Branching-and-Merging-Scenario (main)
+$
